@@ -19,7 +19,7 @@ st.set_page_config(page_title = 'Sinasc RO - 2019',
                    page_icon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ__uwtZnbxNRdhFe5UctTZc8ruHFiFTkVgrw&s',
                    layout='wide')
 
-sinasc = pd.read_csv(r"C:\Users\Meu Computador\anaconda3\EBAC\M15_Streamlit\Tarefa\sinasc.csv")
+sinasc = pd.read_csv("sinasc.csv")
 sinasc['DTNASC'] = pd.to_datetime(sinasc['DTNASC'])
 limite = len(sinasc) * 1 
 sinasc = sinasc.dropna(thresh=limite, axis=1)
@@ -78,7 +78,7 @@ plota_pivot_table(sinasc, 'CONSULTAS', 'DTNASC', 'mean', 'Consultas média','dat
 
 st.markdown("<h3 style='text-align: center; color: white;'> Nascimentos em 2019 </h3>", unsafe_allow_html=True)
 
-sinasc_map = pd.read_csv(r"C:\Users\Meu Computador\anaconda3\EBAC\M15_Streamlit\Tarefa\sinasc.csv")
+sinasc_map = pd.read_csv("sinasc.csv")
 
 sinasc_map = sinasc_map.dropna(subset=['munResLat', 'munResLon'])
 sinasc_map = sinasc_map.rename(columns={'munResLat': 'lat', 'munResLon': 'lon'})
